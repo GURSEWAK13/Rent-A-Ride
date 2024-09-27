@@ -1,4 +1,3 @@
-// import { carData } from "./Data";
 const carData = [
   {
     image: "./assets/images/car-1.jpg",
@@ -97,10 +96,10 @@ function renderCarCard(car) {
         </ul>
         <div class="card-price-wrapper">
           <p class="card-price">
-            <strong>$${car.price}</strong> / month
+            <strong>₹${car.price}</strong> / hour
           </p>
           <button class="btn fav-btn" aria-label="Add to favourite list">
-            <ion-icon name="heart-outline"></ion-icon>
+              <p><span style="font-size: 20px;">&hearts;</span></p>
           </button>
           <button class="btn">Rent now</button>
         </div>

@@ -170,7 +170,10 @@ button, a { transition: var(--transition); }
   font-weight: var(--fw-600);
   overflow: hidden;
 }
-
+.chitkara_logo{
+  height: 50px;
+  width: 50px;
+}
 .btn ion-icon {
   font-size: 22px;
   --ionicon-stroke-width: 40px;
@@ -529,7 +532,6 @@ button, a { transition: var(--transition); }
   --height: 36px;
   min-width: 100%;
 }
-
 .featured-car-card .fav-btn {
   --background: var(--beau-blue);
   --color: var(--blue-jeans);
@@ -1118,7 +1120,7 @@ button, a { transition: var(--transition); }
 
   .navbar-list {
     display: flex;
-    gap: 50px;
+    gap: 20px;
   }
 
 
