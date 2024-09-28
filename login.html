@@ -1,35 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login/Register Page</title>
-  <link rel="stylesheet" href="./assets/css/login.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/login.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <div class="container">
-    <div class="toggle-container">
-      <button class="toggle-button" id="login-btn">Login</button>
-      <button class="toggle-button" id="register-btn">Register</button>
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <form id="signup-form">
+                <h1>Create Account</h1>
+                <div class="social-container">
+                    <a href="#" class="social"><img src="https://imgs.search.brave.com/vjLifBQ3zmd2wLE7PdobfiZpyt0VN0z-js0mefQAYVE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy85/LzljL05hemlfU3dh/c3Rpa2Euc3Zn" alt=""></a>
+                    <a href="#" class="social"><img src="https://imgs.search.brave.com/vjLifBQ3zmd2wLE7PdobfiZpyt0VN0z-js0mefQAYVE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy85/LzljL05hemlfU3dh/c3Rpa2Euc3Zn" alt=""></a>
+                    <a href="#" class="social"><img src="https://imgs.search.brave.com/vjLifBQ3zmd2wLE7PdobfiZpyt0VN0z-js0mefQAYVE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy85/LzljL05hemlfU3dh/c3Rpa2Euc3Zn" alt=""></a>
+                    
+                </div>
+                <span>or use your email for registration</span>
+                <input type="text" placeholder="Name" id="signup-name" required>
+                <input type="email" placeholder="Email" id="signup-email" required>
+                <input type="password" placeholder="Password" id="signup-password" required>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form id="signin-form">
+                <h1>Sign in</h1>
+                <div class="social-container">
+                  <a href="#" class="social"><img src="https://imgs.search.brave.com/vjLifBQ3zmd2wLE7PdobfiZpyt0VN0z-js0mefQAYVE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy85/LzljL05hemlfU3dh/c3Rpa2Euc3Zn" alt=""></a>
+                  <a href="#" class="social"><img src="https://imgs.search.brave.com/vjLifBQ3zmd2wLE7PdobfiZpyt0VN0z-js0mefQAYVE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy85/LzljL05hemlfU3dh/c3Rpa2Euc3Zn" alt=""></a>
+                  <a href="#" class="social"><img src="https://imgs.search.brave.com/vjLifBQ3zmd2wLE7PdobfiZpyt0VN0z-js0mefQAYVE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy85/LzljL05hemlfU3dh/c3Rpa2Euc3Zn" alt=""></a>
+                    
+                </div>
+                <span>or use your account</span>
+                <input type="email" placeholder="Email" id="signin-email" required>
+                <input type="password" placeholder="Password" id="signin-password" required>
+                <a href="#">Forgot your password?</a>
+                <button type="submit">Sign In</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Welcome Back!</h1>
+                    <p>To keep connected with us please login with your personal info</p>
+                    <button class="ghost" id="signIn">Sign In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Enter your personal details and start journey with us</p>
+                    <button class="ghost" id="signUp">Sign Up</button>
+                </div>
+            </div>
+        </div>
     </div>
-    <div id="login-form" class="form-container">
-      <h2>Login</h2>
-      <form id="login-form-data">
-        <input type="email" placeholder="Email" name="email" required>
-        <input type="password" placeholder="Password" name="password" required>
-        <button type="submit">Login</button>
-      </form>
-    </div>
-    <div id="register-form" class="form-container">
-      <h2>Register</h2>
-      <form id="register-form-data">
-        <input type="text" placeholder="Name" name="name" required>
-        <input type="email" placeholder="Email" name="email" required>
-        <input type="password" placeholder="Password" name="password" required>
-        <button type="submit">Register</button>
-      </form>
-    </div>
-  </div>
-  <script src="./assets/js/login.js"></script>
 </body>
+    <script src="./assets/js/login.js"></script>
 </html>

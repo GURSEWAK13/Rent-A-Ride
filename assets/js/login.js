@@ -1,50 +1,53 @@
-const loginBtn = document.getElementById('login-btn');
-const registerBtn = document.getElementById('register-btn');
-const loginForm = document.getElementById('login-form');
-const registerForm = document.getElementById('register-form');
-const loginFormData = document.getElementById('login-form-data');
-const registerFormData = document.getElementById('register-form-data');
+const signUpButton = document.getElementById('signUp');
+const signInButton = document.getElementById('signIn');
+const container = document.getElementById('container');
+const signupForm = document.getElementById('signup-form');
+const signinForm = document.getElementById('signin-form');
 
-// Toggle between login and register forms
-loginBtn.addEventListener('click', () => {
-  loginForm.classList.toggle('active');
-  registerForm.classList.remove('active');
-  loginBtn.classList.toggle('active');
-  registerBtn.classList.remove('active');
+signUpButton.addEventListener('click', () => {
+    container.classList.add("right-panel-active");
 });
 
-registerBtn.addEventListener('click', () => {
-  loginForm.classList.remove('active');
-  registerForm.classList.toggle('active');
-  loginBtn.classList.remove('active');
-  registerBtn.classList.toggle('active');
+signInButton.addEventListener('click', () => {
+    container.classList.remove("right-panel-active");
 });
 
-// Handle form submissions
-registerFormData.addEventListener('submit', (event) => {
-  event.preventDefault();
-  const name = registerFormData.elements.name.value;
-  const email = registerFormData.elements.email.value;
-  const password = registerFormData.elements.password.value;
-  localStorage.setItem(email, JSON.stringify({ name, email, password }));
-  // Display a success message or redirect to login page
-});
+signupForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const name = document.getElementById('signup-name').value;
+    const email = document.getElementById('signup-email').value;
+    const password = document.getElementById('signup-password').value;
 
-loginFormData.addEventListener('submit', (event) => {
-  event.preventDefault();
-  const email = loginFormData.elements.email.value;
-  const password = loginFormData.elements.password.value;
-  const storedUserData = localStorage.getItem(email);
-  if (storedUserData) {
-    const userData = JSON.parse(storedUserData);
-    if (userData.password === password) {
-      console.log("kkkk");
+    // Check if user already exists in local storage
+    const existingUsers = JSON.parse(localStorage.getItem('users')) || [];
+    const existingUser = existingUsers.find(user => user.email === email);
+
+    if (existingUser) {
+        alert('User already exists. Please try a different email.');
     } else {
-      console.log("kkooo");
-      
+        // Add user to local storage
+        existingUsers.push({ name, email, password });
+        localStorage.setItem('users', JSON.stringify(existingUsers));
+
+        // Redirect to signup page (you can customize this)
+        container.classList.remove("right-panel-active");
+    // Replace with your desired page
     }
-  } else {
-    console.log("ooo");
-    
-  }
+});
+
+signinForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const email = document.getElementById('signin-email').value;
+    const password = document.getElementById('signin-password').value;
+
+    // Check if user exists in local storage
+    const existingUsers = JSON.parse(localStorage.getItem('users')) || [];
+    const existingUser = existingUsers.find(user => user.email === email && user.password === password);
+
+    if (existingUser) {
+        // Successful login, redirect to index.html
+        window.location.href = 'index.html';
+    } else {
+        alert('Invalid email or password.');
+    }
 });

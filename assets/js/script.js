@@ -34,3 +34,11 @@ window.addEventListener("scroll", function () {
   window.scrollY >= 10 ? header.classList.add("active")
     : header.classList.remove("active");
 });
+
+// const Home = document.getElementById('Home');
+// const Rented_Cars_or_Bikes= document.getElementById('Rented_Cars_or_Bikes');
+// const Explore_cars_or_Bikes= document.getElementById('Explore_cars_or_Bikes');
+// const About_us = document.getElementById('About_us');
+// const Login_or_Register = document.getElementById('Login_or_Register');
+
+
