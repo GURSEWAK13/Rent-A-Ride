@@ -61,7 +61,21 @@ const carData = [
   },
 ];
 const featuredCarList = document.querySelector(".featured-car-list");
+function rent_car(image, title, year, capacity, fuelType, mileage, transmission, price) {
+  const rentalData = {
+    image,
+    title,
+    year,
+    capacity,
+    fuelType,
+    mileage,
+    transmission,
+    price
+  };
 
+  console.log(car);
+  localStorage.setItem('rentalData', JSON.stringify(rentalData));
+}
 function renderCarCard(car) {
   const card = document.createElement("li");
   card.innerHTML = `
@@ -101,7 +115,7 @@ function renderCarCard(car) {
           <button class="btn fav-btn" aria-label="Add to favourite list">
               <p><span style="font-size: 20px;">&hearts;</span></p>
           </button>
-          <button class="btn">Rent now</button>
+          <button class="btn" onclick="${localStorage.setItem('rentalData', JSON.stringify(car))};">Rent now</button>
         </div>
       </div>
     </div>
@@ -110,3 +124,28 @@ function renderCarCard(car) {
 }
 
 carData.forEach(renderCarCard);
+const form = document.querySelector('.hero-form');
+const searchButton = form.querySelector('button[type="submit"]');
+const searchInput = form.querySelector('#input-1');
+const maxPaymentInput = form.querySelector('#input-2');
+const makeYearInput = form.querySelector('#input-3');
+// const featuredCarList = document.querySelector('.featured-car-list');
+
+searchButton.addEventListener('click', (event) => {
+  event.preventDefault();
+
+  const searchTerm = searchInput.value.toLowerCase();
+  const maxPayment = parseInt(maxPaymentInput.value);
+  const makeYear = parseInt(makeYearInput.value);
+
+  const filteredCars = carData.filter((car) => {
+    const titleMatch = car.title.toLowerCase().includes(searchTerm);
+    const yearMatch = car.year >= makeYear;
+    const priceMatch = car.price <= maxPayment;
+
+    return titleMatch && yearMatch && priceMatch;
+  });
+
+  featuredCarList.innerHTML = '';
+  filteredCars.forEach(renderCarCard);
+});
